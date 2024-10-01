@@ -1,0 +1,7 @@
+{
+  "name": " Job_Finder_App",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
