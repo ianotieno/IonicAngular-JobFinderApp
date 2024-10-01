@@ -1,11 +1,55 @@
+<ion-content [fullscreen]="true" color="light">
 
-
-<ion-content [fullscreen]="true"  color="light">
   <ion-header class="ion-no-border">
     <ion-toolbar color="light" class="ion-padding-vertical">
+
       <ion-title mode="ios">
-        <img [src]="'assets/imgs/logo .png'"/>
+        <img [src]="'assets/imgs/logo.png'">
       </ion-title>
+
+      <ion-buttons slot="start">
+        <ion-thumbnail>
+          <ion-icon name="apps-outline"></ion-icon>
+        </ion-thumbnail>
+      </ion-buttons>
+
+      <ion-buttons slot="end">
+        <ion-thumbnail>
+          <img src="assets/imgs/avatar.png">
+        </ion-thumbnail>
+      </ion-buttons>
+
     </ion-toolbar>
   </ion-header>
+
+  <ion-row class="tagline">
+    <ion-col>
+      <ion-label>
+        <ion-text>
+          Find Your
+        </ion-text>
+        <p>
+          <ion-text color="dark">
+            Creative Job
+          </ion-text>
+        </p>
+      </ion-label>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="srch">
+    <ion-col size="10">
+      <ion-searchbar class="srchBar" placeholder="Search For Jobs"></ion-searchbar>
+    </ion-col>
+    <ion-col size="2">
+      <ion-button mode="ios">
+        <ion-icon name="options"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+ 
+
+   
+
 </ion-content>
