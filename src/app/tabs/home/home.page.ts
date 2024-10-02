@@ -1,29 +1,28 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { IonHeader, IonToolbar, IonContent, IonTitle, IonButtons, IonThumbnail, IonIcon, IonRow, IonCol, IonText, IonLabel, IonSearchbar, IonButton, IonList, IonListHeader, IonItem } from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonContent, IonTitle, IonButtons, IonThumbnail, IonIcon, IonRow, IonCol, IonText, IonLabel, IonSearchbar, IonButton, IonList, IonListHeader } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { appsOutline, options } from 'ionicons/icons';
 import { IonicSlides } from '@ionic/angular';
 import { JobComponent } from 'src/app/components/job/job.component';
-
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
   standalone: true,
-  imports:[IonHeader, IonToolbar, IonContent, IonTitle, IonButtons, IonThumbnail, IonIcon, IonRow, IonCol, IonText, IonLabel, IonSearchbar, IonButton, IonList, IonListHeader,JobComponent],
+  imports: [IonHeader, IonToolbar, IonContent, IonTitle, IonButtons, IonThumbnail, IonIcon, IonRow, IonCol, IonText, IonLabel, IonSearchbar, IonButton, IonList, IonListHeader, JobComponent, RouterModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HomePage implements OnInit {
 
-  popular:any[]=[];
-  recent:any[]=[];
   swiperModules = [IonicSlides];
-  constructor(
-   
-  ) { addIcons({appsOutline,options}); }
+  popular: any[] = [];
+  recent: any[] = [];
+
+  constructor() { 
+    addIcons({ appsOutline, options });
+  }
 
   ngOnInit() {
     this.popular = [
