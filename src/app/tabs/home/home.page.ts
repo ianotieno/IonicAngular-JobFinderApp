@@ -1,22 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonHeader, IonToolbar, IonContent, IonTitle, IonButtons, IonThumbnail, IonIcon, IonRow, IonCol, IonText, IonLabel, IonSearchbar, IonButton, IonList, IonListHeader, IonItem } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { appsOutline, options } from 'ionicons/icons';
+import { IonicSlides } from '@ionic/angular';
+import { JobComponent } from 'src/app/components/job/job.component';
+
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
   standalone: true,
-  imports:[IonHeader, IonToolbar, IonContent, IonTitle, IonButtons, IonThumbnail, IonIcon, IonRow, IonCol, IonText, IonLabel, IonSearchbar, IonButton, IonList, IonListHeader],
+  imports:[IonHeader, IonToolbar, IonContent, IonTitle, IonButtons, IonThumbnail, IonIcon, IonRow, IonCol, IonText, IonLabel, IonSearchbar, IonButton, IonList, IonListHeader,JobComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HomePage implements OnInit {
 
   popular:any[]=[];
   recent:any[]=[];
-  
+  swiperModules = [IonicSlides];
   constructor(
    
   ) { addIcons({appsOutline,options}) }

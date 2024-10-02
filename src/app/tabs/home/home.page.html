@@ -47,10 +47,36 @@
       </ion-button>
     </ion-col>
   </ion-row>
-@if(popular.length>0){
+  @if (popular.length > 0) { 
+    <ion-list lines="none">
+
+      <ion-list-header>
+        <ion-label color="dark">
+          Popular Jobs
+        </ion-label>
+        <ion-button fill="clear" size="small" color="medium">
+          <ion-text>
+            Show all
+          </ion-text>
+        </ion-button>
+      </ion-list-header>  
   
-}
- 
+      <div>
+        <swiper-container
+          [modules]="swiperModules"
+          [slidesPerView]="1.4"
+          [keyboard]="true"
+          [centerSlides]="true">
+          @for (job of popular; track job.id) {
+            <swiper-slide>
+              <app-job [job]="job" [routerLink]="['/', 'tabs', 'job', job.id]"></app-job>
+            </swiper-slide>
+          }
+        </swiper-container>
+      </div>
+
+    </ion-list>
+  }
 
    
 
