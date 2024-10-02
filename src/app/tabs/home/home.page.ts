@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonHeader, IonToolbar, IonContent, IonTitle, IonButtons, IonThumbnail, IonIcon, IonRow, IonCol, IonText, IonLabel, IonSearchbar, IonButton, IonList, IonListHeader, IonItem } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { appsOutline } from 'ionicons/icons';
+import { appsOutline, options } from 'ionicons/icons';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +16,7 @@ export class HomePage implements OnInit {
 
   constructor(
    
-  ) { addIcons({appsOutline}) }
+  ) { addIcons({appsOutline,options}) }
 
   ngOnInit() {
   }
