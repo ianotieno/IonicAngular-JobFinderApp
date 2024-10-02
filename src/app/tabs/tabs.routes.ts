@@ -19,6 +19,10 @@ export const routes: Routes = [
             pathMatch: 'full',
           },
     ]
+  },
+  {
+    path: 'job/:id',
+    loadComponent: () => import('./job-detail/job-detail.page').then( m => m.JobDetailPage)
   }
     
   

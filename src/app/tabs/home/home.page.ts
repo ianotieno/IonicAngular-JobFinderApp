@@ -23,7 +23,7 @@ export class HomePage implements OnInit {
   swiperModules = [IonicSlides];
   constructor(
    
-  ) { addIcons({appsOutline,options}) }
+  ) { addIcons({appsOutline,options}); }
 
   ngOnInit() {
     this.popular = [
