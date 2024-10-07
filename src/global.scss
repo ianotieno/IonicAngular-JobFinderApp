@@ -42,3 +42,19 @@
         }
     }
 }
+
+.swal2-container {
+    top: 0 !important;
+    z-index: 10000 !important; /* Ensure it's above all other elements */
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  .swal2-popup {
+    box-shadow: none !important;
+    margin: 0 !important;
+    border-radius: 10px !important;
+    top: 0 !important;
+    padding: 0 !important;
+  }
+  

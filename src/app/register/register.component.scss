@@ -1,0 +1,63 @@
+ion-content {
+    --background: url('/assets/imgs/background1.png') no-repeat center center/cover;
+    ion-card {
+        box-shadow: none;
+        border-radius: 20px;
+        transform: translateY(25%);
+        background-color: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(8px);
+        div.lock {
+            font-size: 5rem;
+            align-items: center;
+            ion-icon {
+                color: #082294;
+            }
+        }
+        ion-item {
+            --border-radius: 10px;
+        }
+        ion-input, .fwd {
+            font-size: 0.9rem;
+        }
+        .label{
+            font-size: 1.8rem;
+            align-content: center;
+            padding: 1,1,1,1;
+        }
+        .submit {
+            margin-top: 2rem;
+            ion-button {
+                --background: linear-gradient(to right, #f4f0f5, #161516);
+            }
+            ion-text {
+                font-size: 1rem;
+            }
+        }
+        .register {
+            margin-top: 0.5rem;
+            ion-button {
+                --background: linear-gradient(to right, #f4f0f5, #161516);
+            }
+            ion-text {
+                font-size: 1rem;
+            }
+        }
+        }
+    }
+
+    /* Add this to your global styles or component styles */
+.swal2-container {
+    z-index: 9999 !important; /* Ensure the SweetAlert is on top of Ionic components */
+    padding: 0 !important; /* Remove any extra padding */
+  }
+  
+  .swal2-popup {
+    box-shadow: none !important; /* Remove default shadow */
+    border-radius: 10px !important; /* Add your preferred border-radius */
+  }
+  
+  /* Optionally, you can also hide the default Ionic header to ensure SweetAlert is prominent */
+  ion-header {
+    display: none;
+  }
+  

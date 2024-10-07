@@ -4,8 +4,17 @@ export const routes: Routes = [
 
   {
     path: '',
-    redirectTo: 'tabs',
+    redirectTo: 'login',
     pathMatch: 'full',
+  },
+  
+  {
+    path: 'login',
+    loadComponent: () => import('./components/login/login.component').then(m => m.LoginComponent),  // Updated path to the generated component
+  },
+  {
+    path: 'register',
+    loadComponent: () => import('./register/register.component').then(m => m.RegisterComponent),  // Updated path to the generated component
   },
   {
     path: 'tabs',
