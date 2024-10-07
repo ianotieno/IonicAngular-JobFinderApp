@@ -22,7 +22,7 @@ import {
   IonToast, IonLabel } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { keyOutline, mailOutline, lockClosed, trash, eyeOffOutline, eyeOutline } from 'ionicons/icons';
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -78,9 +78,33 @@ export class LoginComponent   {
       this.form.markAllAsTouched();
       return;
     }else{
+      Swal.fire({
+        title: 'Logging In',
+        allowEscapeKey: false,
+        allowOutsideClick: false,
+        timer: 2000,  // Display this for 2 seconds
+        heightAuto: false,
+        didOpen: () => {
+          Swal.showLoading();  // Show a loading spinner
+        }
+      }).then((result) => {
+        // When the 'Now loading' alert is closed, show the 'Finished!' alert
+        if (result.dismiss === Swal.DismissReason.timer) {
+          // Display 'Finished!' SweetAlert
+          Swal.fire({
+            title: 'Logged In Successfully!',
+            icon: 'success',  // Use 'icon' instead of 'type'
+            timer: 2000,
+            showConfirmButton: false,
+            heightAuto: false
+          }).then(() => {
+            // Navigate after the 'Finished!' alert is closed
+            this.router.navigateByUrl('/tabs/home');
+          });
       
-      this.router.navigateByUrl('/tabs/home');
-    }
+        }})}
+ 
+    
     console.log(this.form.value);
     
   }

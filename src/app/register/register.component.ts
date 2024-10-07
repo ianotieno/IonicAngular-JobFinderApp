@@ -94,28 +94,36 @@ export class RegisterComponent {
       this.form.markAllAsTouched();
       return;
     } else {
-      // Show SweetAlert with a timer
       Swal.fire({
-        title: 'Registered Successfully',
-        icon: 'success',
-        timer: 3000, // 3 seconds
-        showConfirmButton: false, // Hide confirm button to let the timer close it
-      }).then(() => {
-        // After 3 seconds, navigate to login
-        this.router.navigateByUrl('/login');
-      });
+        title: 'Registering',
+        allowEscapeKey: false,
+        allowOutsideClick: false,
+        timer: 2000,  // Display this for 2 seconds
+        heightAuto: false,
+        didOpen: () => {
+          Swal.showLoading();  // Show a loading spinner
+        }
+      }).then((result) => {
+        // When the 'Now loading' alert is closed, show the 'Finished!' alert
+        if (result.dismiss === Swal.DismissReason.timer) {
+          // Display 'Finished!' SweetAlert
+          Swal.fire({
+            title: 'Registered Successfully!',
+            icon: 'success',  // Use 'icon' instead of 'type'
+            timer: 2000,
+            showConfirmButton: false,
+            heightAuto: false
+          }).then(() => {
+            // Navigate after the 'Finished!' alert is closed
+            this.router.navigateByUrl('/login');
+          });
+      
+        }})
     }
     console.log(this.form.value);
   }
 
-  showAlert() {
-    Swal.fire({
-      title: 'Test Alert',
-      icon: 'success',
-      timer: 3000,
-      showConfirmButton: false,
-    });
-  }
+ 
   
 
  
