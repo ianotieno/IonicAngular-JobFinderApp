@@ -4,7 +4,7 @@ import { addIcons } from 'ionicons';
 import { appsOutline, options } from 'ionicons/icons';
 import { IonicSlides } from '@ionic/angular';
 import { JobComponent } from 'src/app/components/job/job.component';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { Service } from 'src/app/Service';
 import { UserResponse } from 'src/app/User';
 import { CommonModule } from '@angular/common'; // Import CommonModule
@@ -31,7 +31,7 @@ export class HomePage implements OnInit {
   results: UserResponse | null = null;
   greetingMessage: string = '';
 
-  constructor(private service: Service, private cdr: ChangeDetectorRef) {
+  constructor(private service: Service, private cdr: ChangeDetectorRef,private router: Router) {
     addIcons({ appsOutline, options });
   }
 
@@ -75,5 +75,8 @@ export class HomePage implements OnInit {
     } else {
       this.greetingMessage = 'Good Evening';
     }
+  }
+  profile(){
+    this.router.navigateByUrl('tabs/profile');
   }
 }

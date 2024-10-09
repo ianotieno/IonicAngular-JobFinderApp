@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonTabs, IonTab, IonTabBar, IonTabButton, IonIcon } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import {chatboxEllipsesOutline, heartOutline, homeOutline, personOutline} from 'ionicons/icons'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tabs',
@@ -14,11 +15,17 @@ import {chatboxEllipsesOutline, heartOutline, homeOutline, personOutline} from '
 })
 export class TabsPage implements OnInit {
 
-  constructor() {
-    addIcons({homeOutline,chatboxEllipsesOutline,personOutline,heartOutline})
+  constructor(private router: Router) {
+    addIcons({homeOutline,heartOutline,chatboxEllipsesOutline,personOutline});
    }
 
   ngOnInit() {
   }
-
+  profile() {
+    this.router.navigateByUrl('tabs/profile');
+  }
+  home(){
+    this.router.navigateByUrl('tabs/home');
+  }
+  
 }
