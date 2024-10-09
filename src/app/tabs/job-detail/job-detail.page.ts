@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { addIcons } from 'ionicons';
 import { bookmark, bookmarkOutline } from 'ionicons/icons';
 
+
+
 @Component({
   selector: 'app-job-detail',
   templateUrl: './job-detail.page.html',
@@ -17,8 +19,9 @@ export class JobDetailPage implements OnInit {
   jobs: any[] = [];
   segment_value = 'description';
   bookmark = false;
+ 
 
-  constructor(private route: ActivatedRoute) { 
+  constructor(private route: ActivatedRoute, ) { 
     addIcons({ bookmark, bookmarkOutline });
   }
 
@@ -35,6 +38,7 @@ export class JobDetailPage implements OnInit {
     if(job) {
       this.job = job;
     }
+  
   }
 
   changeSegment(event: any) {
@@ -45,5 +49,7 @@ export class JobDetailPage implements OnInit {
   toggleBookmark() {
     this.bookmark = !this.bookmark;
   }
+  
+ 
 
 }
