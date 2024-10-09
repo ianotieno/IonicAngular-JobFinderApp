@@ -16,8 +16,8 @@ import { ChangeDetectorRef } from '@angular/core';
   styleUrls: ['./home.page.scss'],
   standalone: true,
   imports: [
-    IonHeader, IonToolbar, IonContent, IonTitle, IonButtons, IonThumbnail, IonIcon, IonRow, IonCol, IonText, IonLabel, IonSearchbar, IonButton, IonList, IonListHeader, 
-    JobComponent, 
+    IonHeader, IonToolbar, IonContent, IonTitle, IonButtons, IonThumbnail, IonIcon, IonRow, IonCol, IonText, IonLabel, IonSearchbar, IonButton, IonList, IonListHeader,
+    JobComponent,
     RouterModule,
     CommonModule // Add CommonModule to the imports
   ],
@@ -27,14 +27,13 @@ export class HomePage implements OnInit {
   swiperModules = [IonicSlides];
   popular: any[] = [];
   recent: any[] = [];
-  user: UserResponse= {results: [], nationality: '', seed: '', version: ''}
+  user: UserResponse = { results: [], nationality: '', seed: '', version: '' };
   results: UserResponse | null = null;
- 
+  greetingMessage: string = '';
 
   constructor(private service: Service, private cdr: ChangeDetectorRef) {
     addIcons({ appsOutline, options });
   }
-  
 
   ngOnInit() {
     this.popular = [
@@ -48,6 +47,7 @@ export class HomePage implements OnInit {
       { id: 3, company: 'LinkedIn Corp.', location: 'Mumbai', expires_on: '15/12/23', post: 'Lead UX Designer', type: 'Full Time', salary: '$30-70k/year', logo_dark: 'linkedin_dark.png', logo_light: 'linkedin_light.png' },
     ];
     this.getuser();
+    this.setGreetingMessage();
   }
 
   getuser() {
@@ -65,8 +65,15 @@ export class HomePage implements OnInit {
       }
     );
   }
-  
 
- 
-  
+  setGreetingMessage() {
+    const currentHour = new Date().getHours();
+    if (currentHour < 12) {
+      this.greetingMessage = 'Good Morning';
+    } else if (currentHour < 18) {
+      this.greetingMessage = 'Good Afternoon';
+    } else {
+      this.greetingMessage = 'Good Evening';
+    }
+  }
 }
