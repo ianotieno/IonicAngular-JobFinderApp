@@ -112,8 +112,9 @@ export class JobDetailPage implements OnInit {
     this.bookmark = !this.bookmark;
   }
   
- open(){
-  this.router.navigateByUrl('tabs/applyjob'); 
- }
+  open() {
+    this.router.navigateByUrl(`tabs/applyjob/${encodeURIComponent(this.job.post)}/${encodeURIComponent(this.job.salary)}/${encodeURIComponent(this.job.type)}`);
+  }
+  
 
 }
