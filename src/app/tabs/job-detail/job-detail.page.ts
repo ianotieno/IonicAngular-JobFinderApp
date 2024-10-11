@@ -1,8 +1,9 @@
 import { IonContent, IonHeader, IonToolbar, IonButtons, IonThumbnail, IonBackButton, IonList, IonItem, IonLabel, IonChip, IonText, IonRow, IonSegment, IonSegmentButton, IonCol, IonFooter, IonButton, IonIcon,IonCard, IonCardHeader, IonCardTitle, IonCardContent } from '@ionic/angular/standalone';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { addIcons } from 'ionicons';
 import { bookmark, bookmarkOutline } from 'ionicons/icons';
+import { Service } from 'src/app/Service';
 
 
 
@@ -21,7 +22,7 @@ export class JobDetailPage implements OnInit {
   bookmark = false;
  
 
-  constructor(private route: ActivatedRoute, ) { 
+  constructor(private route: ActivatedRoute,private router: Router ) { 
     addIcons({ bookmark, bookmarkOutline });
   }
 
@@ -111,6 +112,8 @@ export class JobDetailPage implements OnInit {
     this.bookmark = !this.bookmark;
   }
   
- 
+ open(){
+  this.router.navigateByUrl('tabs/applyjob'); 
+ }
 
 }
