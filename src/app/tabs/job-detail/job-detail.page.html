@@ -80,7 +80,7 @@
       </ion-col>
       @if (job?.description?.length > 0) {
         <ul>
-          @for (desc of job.description; track $index) {
+          @for (desc of job.about_job; track $index) {
             <li>
               <ion-text color="medium">{{desc}}</ion-text>
             </li>
@@ -88,6 +88,42 @@
         </ul>
       }
     </ion-row>
+  }
+  @if (segment_value == 'company') {
+    <ion-row class="ion-margin-bottom desc">
+      <ion-col size="12">
+        <ion-label>Company Info</ion-label>
+      </ion-col>
+      @if (job?.description?.length > 0) {
+        <ul>
+          @for (desc of job.company_info; track $index) {
+            <li>
+              <ion-text color="medium">{{desc}}</ion-text>
+            </li>
+          }
+        </ul>
+      }
+    </ion-row>
+  
+   
+  }
+  @if (segment_value == 'reviews') {
+    <ion-row class="ion-margin-bottom desc">
+      <ion-col size="12">
+        <ion-label>Reviews</ion-label>
+      </ion-col>
+      @if (job?.description?.length > 0) {
+        <ul>
+          @for (desc of job.reviews; track $index) {
+            <li>
+              <ion-text color="medium">{{desc}}</ion-text>
+            </li>
+          }
+        </ul>
+      }
+    </ion-row>
+  
+   
   }
 
 </ion-content>

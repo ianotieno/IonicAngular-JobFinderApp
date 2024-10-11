@@ -1,0 +1,95 @@
+/* Style for the Profile Text */
+ion-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #edebeb;
+}
+
+/* Style for the ion-card and ion-item */
+ion-card {
+  margin: 16px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+ion-item {
+  --padding-start: 12px;
+  --inner-padding-end: 12px;
+}
+
+/* Styling the user name label */
+ion-label.recent {
+  font-size: 16px;
+  color: #f4eeee;
+  padding: 10px 0;
+}
+
+/* Avatar Thumbnail */
+ion-thumbnail img {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+}
+
+/* Adjusting the ion-chip */
+ion-chip {
+  margin-top: 10px;
+  --color: #8e44ad;
+  --border-color: #8e44ad;
+  --background: transparent;
+  --padding-start: 8px;
+  --padding-end: 8px;
+}
+
+/* List and Icon Styling */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  color: #fbf6f6;
+  padding: 10px 0;
+}
+
+ul li ion-icon {
+  margin-right: 10px;
+  padding-left: 10px;
+  font-size: 22px;
+  color: #fcf8f8;
+}
+
+ion-row {
+  margin: 16px 0;
+}
+
+ul li:hover {
+  cursor: pointer;
+  color: #007bff;
+}
+/* Style for the ion-item lines */
+ion-item {
+  --ion-item-border-color: #e0e0e0; /* Light grey for the divider lines */
+}
+
+/* Adjust the icon size and color */
+ion-icon {
+  color: #d6d5d5; /* Light grey for the icons */
+}
+
+ion-icon[slot="end"] {
+  font-size: 20px; /* Slightly smaller arrow */
+  color: #aaa; /* Lighter grey for the arrow icon */
+}
+.tagline {
+  padding-left: 1.5vh;
+  ion-text {
+    font-size: 2rem;
+    font-weight: 800;
+    color: rgb(14, 14, 14);
+  }
+}
