@@ -13,7 +13,7 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-list lines="none">
+  <ion-list lines="none" >
 
     <ion-item>
       <ion-label>
@@ -31,13 +31,13 @@
       <ion-label class="company">
         Username: {{ user.results[0].user.username}}
         <p>
-          <ion-text color="medium">
             Email: {{ user.results[0].user.email}}
-          </ion-text>
+          
         </p>
+        
       </ion-label>
-     
-        <ion-chip outline={true} color="purple" slot="end"> {{ user.nationality }}</ion-chip>
+      <ion-chip outline={true}  slot="end"> {{ user.nationality }}</ion-chip>
+       
       
     </ion-item>
   </ion-list>
