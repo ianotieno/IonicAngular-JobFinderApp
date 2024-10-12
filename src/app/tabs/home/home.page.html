@@ -86,30 +86,34 @@
         <ion-label color="dark">
           Recent Jobs
         </ion-label>
-        <ion-button fill="clear" size="small" color="medium">
+        <ion-button fill="clear" size="small" color="medium" (click)="toggleShowAllRecent()">
           <ion-text>
-            Show all
+            {{ showAllRecent ? 'Show less' : 'Show all' }}
           </ion-text>
         </ion-button>
       </ion-list-header>
       @for (job of recent; track job.id) {
-        <ion-item class="ion-margin-bottom" [routerLink]="['/', 'tabs', 'job', job.id]">
-          <ion-thumbnail slot="start">
-            <img [src]="'assets/imgs/' + job?.logo_light">
-          </ion-thumbnail>
-          <ion-label class="recent">
-            {{job?.post}}
-            <p>
-              {{job?.company}}
-              <span class="dot"></span>
-              {{job?.type}}
-            </p>
-          </ion-label>
-          <ion-text slot="end" color="dark">
-            4d Left
-          </ion-text>
-        </ion-item>
+        @if (showAllRecent || job.id >= 5) {
+          <ion-item class="ion-margin-bottom" [routerLink]="['/', 'tabs', 'job', job.id]">
+            <ion-thumbnail slot="start">
+              <img [src]="'assets/imgs/' + job?.logo_light">
+            </ion-thumbnail>
+            <ion-label class="recent">
+              {{job?.post}}
+              <p>
+                {{job?.company}}
+                <span class="dot"></span>
+                {{job?.type}}
+              </p>
+            </ion-label>
+            <ion-text slot="end" color="dark">
+              4d Left
+            </ion-text>
+          </ion-item>
+        }
       }
     </ion-list>
   }
+  
+
 </ion-content>

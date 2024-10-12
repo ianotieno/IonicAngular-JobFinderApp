@@ -30,7 +30,7 @@ export class HomePage implements OnInit {
   user: UserResponse = { results: [], nationality: '', seed: '', version: '' };
   results: UserResponse | null = null;
   greetingMessage: string = '';
-
+  showAllRecent: boolean = false;
   constructor(private service: Service, private cdr: ChangeDetectorRef,private router: Router) {
     addIcons({ appsOutline, options });
   }
@@ -45,6 +45,11 @@ export class HomePage implements OnInit {
       { id: 4, company: 'TikTok', location: 'New Delhi', expires_on: '30/11/23', post: 'Senior UX Designer', type: 'Full Time', salary: '$40-90k/year', logo_dark: 'tiktok_dark.png', logo_light: 'tiktok_light.png' },
       { id: 2, company: 'Uber Technologies', location: 'Bangalore', expires_on: '07/12/23', post: 'Full-Stack Developer', type: 'Full Time', salary: '$30-80k/year', logo_dark: 'uber_dark.png', logo_light: 'uber_light.png' },
       { id: 3, company: 'LinkedIn Corp.', location: 'Mumbai', expires_on: '15/12/23', post: 'Lead UX Designer', type: 'Full Time', salary: '$30-70k/year', logo_dark: 'linkedin_dark.png', logo_light: 'linkedin_light.png' },
+    
+      { id: 5, company: 'TikTok', location: 'New Delhi', expires_on: '30/11/23', post: 'Senior UX Designer', type: 'Full Time', salary: '$40-90k/year', logo_dark: 'tiktok_dark.png', logo_light: 'tiktok_light.png' },
+      { id: 6, company: 'Uber Technologies', location: 'Bangalore', expires_on: '07/12/23', post: 'Full-Stack Developer', type: 'Full Time', salary: '$30-80k/year', logo_dark: 'uber_dark.png', logo_light: 'uber_light.png' },
+      { id: 7, company: 'LinkedIn Corp.', location: 'Mumbai', expires_on: '15/12/23', post: 'Lead UX Designer', type: 'Full Time', salary: '$30-70k/year', logo_dark: 'linkedin_dark.png', logo_light: 'linkedin_light.png' },
+    
     ];
     this.getuser();
     this.setGreetingMessage();
@@ -78,5 +83,8 @@ export class HomePage implements OnInit {
   }
   profile(){
     this.router.navigateByUrl('tabs/profile');
+  }
+  toggleShowAllRecent() {
+    this.showAllRecent = !this.showAllRecent;
   }
 }
