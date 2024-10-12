@@ -61,6 +61,8 @@ export class HomePage implements OnInit {
     ];
     this.getuser();
     this.setGreetingMessage();
+    this.filteredPopular = this.popular;
+    this.filteredRecent = this.recent;
   }
 
   getuser() {

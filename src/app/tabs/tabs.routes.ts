@@ -19,6 +19,10 @@ export const routes: Routes = [
           loadComponent: () => import('./postjob/postjob.page').then( m => m.PostjobPage)
         },
         {
+          path: 'liked',
+          loadComponent: () => import('./liked/liked.page').then( m => m.LikedPage)
+        },
+        {
             path: '',
             redirectTo: '/tabs/home',
             pathMatch: 'full',
@@ -32,6 +36,7 @@ export const routes: Routes = [
     path: 'applyjob/:jobPost/:type/:salary',
     loadComponent: () => import('./applyjob/applyjob.page').then(m => m.ApplyjobPage)
   },
+  
   
   
   
