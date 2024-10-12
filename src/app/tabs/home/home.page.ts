@@ -25,14 +25,22 @@ import { ChangeDetectorRef } from '@angular/core';
 })
 export class HomePage implements OnInit {
   swiperModules = [IonicSlides];
-  popular: any[] = [];
+  popular: any[] = [{ id: 1, company: 'Technyks LLC', location: 'Nairobi', expires_on: '30/11/23', post: 'Senior UX Designer', type: 'Full Time', salary: '$40-90k/year', logo_dark: 'ct_dark.png', logo_light: 'ct_light.png' },
+  { id: 2, company: 'Uber Technologies', location: 'Mombasa', expires_on: '07/12/23', post: 'Full-Stack Developer', type: 'Full Time', salary: '$30-80k/year', logo_dark: 'uber_dark.png', logo_light: 'uber_light.png' },
+  { id: 3, company: 'LinkedIn Corp.', location: 'Eldoret', expires_on: '15/12/23', post: 'Lead UX Designer', type: 'Full Time', salary: '$30-70k/year', logo_dark: 'linkedin_dark.png', logo_light: 'linkedin_light.png' },
+];
   recent: any[] = [];
+  filteredPopular: any[] = [];
+  filteredRecent: any[] = [];
   user: UserResponse = { results: [], nationality: '', seed: '', version: '' };
   results: UserResponse | null = null;
   greetingMessage: string = '';
   showAllRecent: boolean = false;
   constructor(private service: Service, private cdr: ChangeDetectorRef,private router: Router) {
     addIcons({ appsOutline, options });
+    this.filteredPopular = this.popular;
+    this.filteredRecent = this.recent;
+    
   }
 
   ngOnInit() {
@@ -87,4 +95,30 @@ export class HomePage implements OnInit {
   toggleShowAllRecent() {
     this.showAllRecent = !this.showAllRecent;
   }
+  filterJobs(event: any) {
+    const searchTerm = event.target.value.toLowerCase();
+    console.log('Search term:', searchTerm);
+  
+    if (!searchTerm) {
+      this.filteredPopular = this.popular;
+      this.filteredRecent = this.recent;
+    } else {
+      this.filteredPopular = this.popular.filter(job =>
+        job.post.toLowerCase().includes(searchTerm) ||
+        job.company.toLowerCase().includes(searchTerm)
+      );
+  
+      this.filteredRecent = this.recent.filter(job =>
+        job.post.toLowerCase().includes(searchTerm) ||
+        job.company.toLowerCase().includes(searchTerm)
+      );
+    }
+  
+    console.log('Filtered Popular:', this.filteredPopular);
+    console.log('Filtered Recent:', this.filteredRecent);
+  
+    this.cdr.detectChanges();
+  }
+  
+  
 }
