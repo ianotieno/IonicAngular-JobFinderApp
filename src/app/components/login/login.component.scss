@@ -5,13 +5,14 @@ ion-content {
     display: flex;
     align-items: center;
     justify-content: center;
+   
 }
   ion-card {
-    margin-top: 70px;
-    margin-left: 450px;
+    max-width: 400px; // Adjust as needed for your card width
+    margin: 100px auto;
     box-shadow: none;
     width: 90%;
-    max-width: 400px;
+  
     border-radius: 20px;
     transform: translateY(0%);
     background-color: rgba(255, 255, 255, 0.3);
