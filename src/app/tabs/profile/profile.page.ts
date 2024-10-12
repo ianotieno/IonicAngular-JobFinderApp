@@ -5,7 +5,8 @@ import { IonContent, IonHeader, IonTitle,IonChip ,IonBackButton ,IonToolbar, Ion
 import { Service } from 'src/app/Service';
 import { UserResponse } from 'src/app/User';
 import { addIcons } from 'ionicons';
-import { cog, helpBuoyOutline, personAddOutline, chevronForwardOutline, keyOutline, newspaperOutline } from 'ionicons/icons';
+import { cog, helpBuoyOutline, personAddOutline, chevronForwardOutline, keyOutline, newspaperOutline, mailOutline } from 'ionicons/icons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -18,9 +19,9 @@ import { cog, helpBuoyOutline, personAddOutline, chevronForwardOutline, keyOutli
 export class ProfilePage implements OnInit {
   user: UserResponse = { results: [], nationality: '', seed: '', version: '' };
   results: UserResponse | null = null;
-  constructor(private service: Service, private cdr: ChangeDetectorRef,) { 
+  constructor(private service: Service, private cdr: ChangeDetectorRef,private router: Router) { 
 
-    addIcons({cog,chevronForwardOutline,helpBuoyOutline,personAddOutline,keyOutline,newspaperOutline});
+    addIcons({cog,chevronForwardOutline,helpBuoyOutline,personAddOutline,keyOutline,newspaperOutline,mailOutline});
   }
 
   ngOnInit() {
@@ -40,5 +41,8 @@ export class ProfilePage implements OnInit {
         console.error('Error fetching user:', error);
       }
     );
+  }
+  onSubmit(){
+    this.router.navigateByUrl('/login');
   }
 }

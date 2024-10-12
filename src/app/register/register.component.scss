@@ -1,11 +1,16 @@
 ion-content {
     --background: url('/assets/imgs/background1.png') no-repeat center center/cover;
     ion-card {
-        box-shadow: none;
-        border-radius: 20px;
-        transform: translateY(25%);
-        background-color: rgba(255, 255, 255, 0.3);
-        backdrop-filter: blur(8px);
+        margin-top: 70px;
+    margin-left: 450px;
+    box-shadow: none;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 20px;
+    transform: translateY(0%);
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(8px);
+    padding: 1rem;
         div.lock {
             font-size: 5rem;
             align-items: center;
@@ -61,3 +66,8 @@ ion-content {
     display: none;
   }
   
+  .label {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
