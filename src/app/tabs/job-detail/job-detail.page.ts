@@ -63,7 +63,7 @@ export class JobDetailPage implements OnInit {
       {
         id: 3,
         company: 'LinkedIn Corp.',
-        location: 'Mumbai',
+        location: 'Eldoret',
         expires_on: '15/12/23',
         post: 'Lead UX Designer',
         type: 'Full Time',
@@ -77,9 +77,9 @@ export class JobDetailPage implements OnInit {
         about_job: ['This role involves leading the design team and creating innovative user experiences for LinkedIn.']
       },
       {
-        id: 4,
+        id: 5,
         company: 'TikTok',
-        location: 'New Delhi',
+        location: 'Kakamega',
         expires_on: '30/11/23',
         post: 'Senior UX Designer',
         type: 'Full Time',
@@ -111,7 +111,7 @@ export class JobDetailPage implements OnInit {
       {
         id: 7,
         company: 'LinkedIn Corp.',
-        location: 'Mumbai',
+        location: 'Kisumu',
         expires_on: '15/12/23',
         post: 'Lead UX Designer',
         type: 'Full Time',
@@ -127,7 +127,7 @@ export class JobDetailPage implements OnInit {
       {
         id: 8,
         company: 'TikTok',
-        location: 'New Delhi',
+        location: 'Nairobi',
         expires_on: '30/11/23',
         post: 'Senior UX Designer',
         type: 'Full Time',
