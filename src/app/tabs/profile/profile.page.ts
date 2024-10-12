@@ -5,7 +5,7 @@ import { IonContent, IonHeader, IonTitle,IonChip ,IonBackButton ,IonToolbar, Ion
 import { Service } from 'src/app/Service';
 import { UserResponse } from 'src/app/User';
 import { addIcons } from 'ionicons';
-import { cog, helpBuoyOutline, personAddOutline, chevronForwardOutline, keyOutline, newspaperOutline, mailOutline, logOutOutline } from 'ionicons/icons';
+import { cog, helpBuoyOutline, personAddOutline, chevronForwardOutline, keyOutline, newspaperOutline, mailOutline, logOutOutline, thumbsUpOutline } from 'ionicons/icons';
 import { Router } from '@angular/router';
 
 @Component({
@@ -21,7 +21,7 @@ export class ProfilePage implements OnInit {
   results: UserResponse | null = null;
   constructor(private service: Service, private cdr: ChangeDetectorRef,private router: Router) { 
 
-    addIcons({cog,chevronForwardOutline,helpBuoyOutline,personAddOutline,keyOutline,newspaperOutline,logOutOutline,mailOutline});
+    addIcons({cog,chevronForwardOutline,helpBuoyOutline,personAddOutline,keyOutline,newspaperOutline,thumbsUpOutline,logOutOutline,mailOutline});
   }
 
   ngOnInit() {
