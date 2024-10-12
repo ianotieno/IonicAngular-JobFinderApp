@@ -1,0 +1,126 @@
+<ion-content [fullscreen]="true" color="light">
+  <ion-header class="ion-no-border">
+    <ion-toolbar >
+      <ion-list lines="none">
+        <ion-buttons slot="start">
+          <ion-thumbnail class="menu">
+            <ion-back-button mode="md" defaultHref="/tabs/home"></ion-back-button>
+          </ion-thumbnail>
+          <ion-label>Post A Vacancy</ion-label>
+        </ion-buttons>
+      </ion-list>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Add [formGroup] directive to the ion-list -->
+  <ion-list style="background-color: white;" [formGroup]="form">
+    <ion-item  color="light">
+      <ion-input
+        labelPlacement="floating"
+        type="text"
+        inputmode="text"
+        placeholder="Name Of Company"
+        enterkeyhint="next"
+        formControlName="name"
+        errorText="* Enter Your Name"
+      >
+      <div slot="label">Name Of Company <ion-text color="danger">*</ion-text></div>
+      </ion-input>
+    </ion-item>
+
+    <ion-item class="ion-margin-top" color="light">
+      <ion-input
+        labelPlacement="floating"
+        type="email"
+        inputmode="email"
+        formControlName="email"
+        placeholder="Enter email address"
+        errorText="* Enter proper email address"
+        enterkeyhint="next"
+      >
+        <div slot="label">Email <ion-text color="danger">*</ion-text></div>
+      </ion-input>
+    </ion-item>
+
+    <ion-item class="ion-margin-top" color="light">
+      <ion-input
+        labelPlacement="floating"
+        type="number"
+        inputmode="number"
+        formControlName="phoneNumber"
+        placeholder="Enter Phone number"
+        errorText="* Enter phone number"
+        enterkeyhint="next"
+      >
+        <div slot="label">Phone Number <ion-text color="danger">*</ion-text></div>
+      </ion-input>
+
+    </ion-item>
+    <ion-item class="ion-margin-top" color="light">
+      <ion-input
+        labelPlacement="floating"
+        type="text"
+        inputmode="text"
+        formControlName="location"
+        placeholder="Enter A Location"
+        errorText="* Enter A Location"
+        enterkeyhint="next"
+      >
+        <div slot="label">Location <ion-text color="danger">*</ion-text></div>
+      </ion-input>
+    </ion-item>
+    <ion-item class="ion-margin-top" color="light">
+      <ion-input
+        labelPlacement="floating"
+        type="text"
+        inputmode="text"
+        formControlName="post"
+        placeholder="Enter Post"
+        errorText="* Enter Post"
+        enterkeyhint="next"
+      >
+        <div slot="label">Post <ion-text color="danger">*</ion-text></div>
+      </ion-input>
+    </ion-item>
+    <ion-item class="ion-margin-top" color="light">
+      <ion-input
+        labelPlacement="floating"
+        type="text"
+        inputmode="text"
+        formControlName="salary"
+        placeholder="Enter Salary"
+        errorText="* Enter Salary"
+        enterkeyhint="next"
+      >
+        <div slot="label">Salary <ion-text color="danger">*</ion-text></div>
+      </ion-input>
+    </ion-item>
+    <ion-item class="ion-margin-top" color="light">
+      <ion-select label="Level Of Experience" label-placement="floating">
+        <ion-select-option value="junior">Junior</ion-select-option>
+        <ion-select-option value="associate">Associate</ion-select-option>
+        <ion-select-option value="Midlevel">Mid-level</ion-select-option>
+        <ion-select-option value="Senior">Senior</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item class="ion-margin-top" color="light">
+      <ion-input
+        labelPlacement="floating"
+        type="text"
+        inputmode="text"
+        placeholder="Enter Qualification"
+        enterkeyhint="next"
+        [counter]="true"
+        maxlength="50"
+        formControlName="qualification"
+      >
+        <div slot="label">Enter Qualification <ion-text color="danger">*</ion-text></div>
+      </ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="block" (click)="open()">
+    <ion-text color="light">Post</ion-text>
+  </ion-button>
+</ion-content>

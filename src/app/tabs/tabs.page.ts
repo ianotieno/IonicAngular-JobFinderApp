@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonTabs, IonTab, IonTabBar, IonTabButton, IonIcon } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import {chatboxEllipsesOutline, heartOutline, homeOutline, personOutline} from 'ionicons/icons'
+import {chatboxEllipsesOutline, heartOutline, homeOutline, personOutline, createOutline } from 'ionicons/icons'
 import { Router } from '@angular/router';
 
 @Component({
@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 export class TabsPage implements OnInit {
 
   constructor(private router: Router) {
-    addIcons({homeOutline,heartOutline,chatboxEllipsesOutline,personOutline});
+    addIcons({homeOutline,heartOutline,createOutline,personOutline,chatboxEllipsesOutline});
    }
 
   ngOnInit() {
