@@ -1,0 +1,33 @@
+ion-content {
+   
+    ion-header {
+        ion-toolbar {
+            height: 30vh;
+            // --background: url('../../../../assets/imgs/ux.jpg') no-repeat center center/cover;
+            ion-buttons {
+                margin: 2vh 1.5vh;
+                ion-thumbnail {
+                    background-color: #fff;
+                    border: 1px solid var(--ion-color-medium);
+                    --border-radius: 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    ion-icon {
+                    font-size: 1.5rem;
+                    }
+                }
+            }
+        }
+    }
+
+    ion-list {
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        padding: 1.5vh;
+        ion-item {
+            ion-label {
+                font-size: 1.7rem;
+                font-weight: 800;
+            }
+        }}}

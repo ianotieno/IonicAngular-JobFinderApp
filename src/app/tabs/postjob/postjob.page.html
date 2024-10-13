@@ -1,16 +1,24 @@
 <ion-content [fullscreen]="true" color="light">
-  <ion-header class="ion-no-border">
-    <ion-toolbar >
-      <ion-list lines="none">
-        <ion-buttons slot="start">
-          <ion-thumbnail class="menu">
-            <ion-back-button mode="md" defaultHref="/tabs/home"></ion-back-button>
-          </ion-thumbnail>
-          <ion-label>Post A Vacancy</ion-label>
-        </ion-buttons>
-      </ion-list>
+
+  <ion-header>
+    <ion-toolbar 
+      [style.--background]="'url(\'../../../../assets/imgs/background2.jpg' + '\') no-repeat center center/cover'">
+      <ion-buttons slot="start">
+        <ion-thumbnail class="menu">
+          <ion-back-button color="dark" mode="md" defaultHref="/tabs/home"></ion-back-button>
+        </ion-thumbnail>
+      </ion-buttons>
     </ion-toolbar>
   </ion-header>
+
+  <ion-list lines="none"  >
+
+    <ion-item >
+      <ion-label>
+       Post A Vacancy
+      </ion-label>
+    </ion-item>
+  </ion-list>
 
   <!-- Add [formGroup] directive to the ion-list -->
   <ion-list style="background-color: white;" [formGroup]="form">
@@ -96,13 +104,14 @@
       </ion-input>
     </ion-item>
     <ion-item class="ion-margin-top" color="light">
-      <ion-select label="Level Of Experience" label-placement="floating">
+      <ion-select label="Level Of Experience" interface="popover" label-placement="floating" color="light">
         <ion-select-option value="junior">Junior</ion-select-option>
         <ion-select-option value="associate">Associate</ion-select-option>
         <ion-select-option value="Midlevel">Mid-level</ion-select-option>
         <ion-select-option value="Senior">Senior</ion-select-option>
       </ion-select>
     </ion-item>
+    
 
     <ion-item class="ion-margin-top" color="light">
       <ion-input

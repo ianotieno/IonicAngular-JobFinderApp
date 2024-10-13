@@ -57,4 +57,38 @@
     top: 0 !important;
     padding: 0 !important;
   }
+  /* Custom styles for ion-select in dark mode */
+.dark-mode ion-select {
+    --background: var(--ion-color-dark);
+    --color: var(--ion-color-light);
+  }
+  
+  .dark-mode ion-select .select-text,
+  .dark-mode ion-select .select-icon,
+  .dark-mode ion-select .select-placeholder {
+    color: var(--ion-color-light);
+  }
+  
+  .dark-mode ion-select .select-interface {
+    background: var(--ion-color-dark);
+    color: var(--ion-color-light);
+  }
+  
+  .dark-mode ion-select .select-interface .select-interface-option {
+    color: var(--ion-color-light);
+  }
+  
+  .dark-mode ion-select .select-interface .select-interface-option.select-interface-option-selected {
+    background: var(--ion-color-primary);
+    color: var(--ion-color-light);
+  }
+  
+  .dark-mode ion-select .select-interface .select-interface-option.select-interface-option-disabled {
+    color: var(--ion-color-medium);
+  }
+  
+  .dark-mode ion-select .select-interface .select-interface-option.select-interface-option-selected.select-interface-option-disabled {
+    background: var(--ion-color-medium);
+    color: var(--ion-color-light);
+  }
   

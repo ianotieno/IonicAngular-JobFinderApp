@@ -1,32 +1,38 @@
 ion-content {
    
     ion-header {
-       
-            
-                ion-label{
-                    font-size: 1.7rem;
-                    font-weight: 800;
+        ion-toolbar {
+            height: 30vh;
+            // --background: url('../../../../assets/imgs/ux.jpg') no-repeat center center/cover;
+            ion-buttons {
+                margin: 2vh 1.5vh;
+                ion-thumbnail {
+                    background-color: #fff;
+                    border: 1px solid var(--ion-color-medium);
+                    --border-radius: 10px;
+                    display: flex;
                     align-items: center;
-                    padding-left: 20px;
-                }
-            
-    }
-    
-            ion-label.company {
-                font-size: 0.8rem;
-                font-weight: 500;
-                p {
-                    margin-top: 3px;
-                    ion-text {
-                        font-size: 0.65rem;
+                    justify-content: center;
+                    ion-icon {
+                    font-size: 1.5rem;
                     }
                 }
             }
-            ion-text {
-                font-size: 0.65rem;
-                font-weight: 500;
-            }
         }
+    }
+
+    ion-list {
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        padding: 1.5vh;
+        ion-item {
+            ion-label {
+                font-size: 1.7rem;
+                font-weight: 800;
+            }
+        }}}
+            
+                
     
 
     ion-row {
@@ -73,3 +79,6 @@ ion-footer {
         --background: #fff;
     }
 }
+
+
+  
