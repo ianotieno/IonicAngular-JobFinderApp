@@ -15,7 +15,7 @@
     </ion-item>
   </ion-list>
 
-  <ion-modal   [isOpen]="selectedUser !== null" (ionModalDidDismiss)="setSelectedUser(null)" [canDismiss]="canDismiss" [presentingElement]="presentingElement">
+  <ion-modal   [isOpen]="selectedUser !== null" (ionModalDidDismiss)="setSelectedUser(null)"  [presentingElement]="presentingElement">
     <ion-content class="ion-padding">
       <ng-container *ngIf="activeSegment === 'details'">
         <ion-card>
@@ -55,7 +55,7 @@
   </ion-modal>
 
   <ng-container *ngIf="user.results.length > 0">
-    <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab horizontal="end" color="orange" vertical="bottom" slot="fixed">
       <ion-fab-button>
         <ion-icon name="add-outline"></ion-icon>
       </ion-fab-button>
