@@ -15,21 +15,7 @@
     </ion-item>
   </ion-list>
 
-  <ion-modal   [isOpen]="selectedUser !== null" (ionModalDidDismiss)="setSelectedUser(null)">
-    <ion-header>
-      <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-button color="light" (click)="closeModal()">Close</ion-button>
-        </ion-buttons>
-        <ion-title>{{ selectedUser?.user.name.first }} {{ selectedUser?.user.name.last }}</ion-title>
-      </ion-toolbar>
-      <ion-toolbar>
-        <ion-segment [(ngModel)]="activeSegment">
-          <ion-segment-button value="details">Details</ion-segment-button>
-          <ion-segment-button value="calendar">Calendar</ion-segment-button>
-        </ion-segment>
-      </ion-toolbar>
-    </ion-header>
+  <ion-modal   [isOpen]="selectedUser !== null" (ionModalDidDismiss)="setSelectedUser(null)" [canDismiss]="canDismiss" [presentingElement]="presentingElement">
     <ion-content class="ion-padding">
       <ng-container *ngIf="activeSegment === 'details'">
         <ion-card>
@@ -57,16 +43,13 @@
            
               <p class="ion-padding-horizontal"></p>
               <ion-item>
-                <ion-checkbox id="terms" (ionChange)="onTermsChanged($event)" [checked]="canDismiss">
+                <ion-checkbox id="terms" (ionChange)="onTermsChanged($event)" >
                   <div class="ion-text-wrap">Do you want {{ selectedUser?.user.name.title}} {{ selectedUser?.user.name.first }} {{ selectedUser?.user.name.last }} to be you coach ?</div>
                 </ion-checkbox>
               </ion-item>
        
           </ion-card-content>
         </ion-card>
-      </ng-container>
-      <ng-container *ngIf="activeSegment === 'calendar'">
-        <ion-datetime></ion-datetime>
       </ng-container>
     </ion-content>
   </ion-modal>

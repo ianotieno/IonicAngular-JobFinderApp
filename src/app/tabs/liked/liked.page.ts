@@ -8,6 +8,10 @@ import { addIcons } from 'ionicons';
 import { add, addOutline } from 'ionicons/icons';
 import { FormsModule } from '@angular/forms';
 import { CheckboxCustomEvent } from '@ionic/angular';
+import { ActionSheetController } from '@ionic/angular';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-liked',
   templateUrl: './liked.page.html',
@@ -29,9 +33,9 @@ export class LikedPage implements OnInit {
   showAllRecent: boolean = false;
   selectedUser: any = null;
   activeSegment: string = 'details';
-  canDismiss = false;
-  presentingElement = null;
-  constructor(private service: Service, private cdr: ChangeDetectorRef) { 
+  
+  presentingElement = undefined;
+  constructor(private service: Service,private router: Router, private cdr: ChangeDetectorRef,private actionSheetCtrl: ActionSheetController) { 
 
     addIcons({addOutline,});
   }
@@ -65,6 +69,58 @@ export class LikedPage implements OnInit {
   }
   onTermsChanged(event: Event) {
     const ev = event as CheckboxCustomEvent;
-    this.canDismiss = ev.detail.checked;
+    if (ev.detail.checked) {
+      const today = new Date();
+    const formattedDate = today.toLocaleDateString('en-GB'); // This will format as 'dd/mm/yyyy'.
+
+      Swal.fire({
+        title:`Booking Slot for ${formattedDate}`,
+        allowEscapeKey: false,
+        allowOutsideClick: false,
+        timer: 2000,  // Display this for 2 seconds
+        heightAuto: false,
+        didOpen: () => {
+          Swal.showLoading();  // Show a loading spinner
+        }
+      }).then((result) => {
+        // When the 'Now loading' alert is closed, show the 'Finished!' alert
+        if (result.dismiss === Swal.DismissReason.timer) {
+          // Display 'Submitted Successfully!' SweetAlert
+          Swal.fire({
+            title: 'Slot Booked Successfully!',
+            icon: 'success',
+            timer: 2000,
+            showConfirmButton: false,
+            heightAuto: false
+          }).then(() => {
+            this.router.navigateByUrl('/tabs/liked')
+          });
+      
+        }
+      });
+    }
   }
+  
+
+  canDismiss = async () => {
+    const actionSheet = await this.actionSheetCtrl.create({
+      header: 'Are you sure?',
+      buttons: [
+        {
+          text: 'Yes',
+          role: 'confirm',
+        },
+        {
+          text: 'No',
+          role: 'cancel',
+        },
+      ],
+    });
+
+    actionSheet.present();
+
+    const { role } = await actionSheet.onWillDismiss();
+
+    return role === 'confirm';
+  };
 }
