@@ -18,16 +18,23 @@ ion-content {
                     }
                 }
             }
+           
         }
     }
-
     ion-list {
-        border-bottom-left-radius: 20px;
-        border-bottom-right-radius: 20px;
-        padding: 1.5vh;
+       
         ion-item {
             ion-label {
-                font-size: 1.7rem;
+                font-size: 1.0rem;
                 font-weight: 800;
             }
-        }}}
+            img {
+                height: 6vh;
+                width: 6vh;
+              }
+        }
+    }
+   
+     }
+
+    

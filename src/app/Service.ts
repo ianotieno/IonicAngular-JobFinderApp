@@ -10,7 +10,7 @@ export class Service {
   constructor(private http: HttpClient) {}
 
   getUser(): Observable<UserResponse > {
-    const url = 'https://randomuser.me/api/0.8/?results'; // Dummy API for testing
+    const url = 'https://randomuser.me/api/0.8/?results=6'; // Dummy API for testing
     return this.http.get<UserResponse >(url);
   }
 }

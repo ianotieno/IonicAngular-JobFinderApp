@@ -1,8 +1,6 @@
 <ion-content [fullscreen]="true" color="light">
-
   <ion-header>
-    <ion-toolbar 
-      [style.--background]="'url(\'../../../../assets/imgs/ux2.jpg' + '\') no-repeat center center/cover'">
+    <ion-toolbar [style.--background]="'url(\'../../../../assets/imgs/ux2.jpg\') no-repeat center center/cover'">
       <ion-buttons slot="start">
         <ion-thumbnail class="menu">
           <ion-back-button color="dark" mode="md" defaultHref="/tabs/home"></ion-back-button>
@@ -11,14 +9,96 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-list lines="none"  >
-
-    <ion-item >
-      <ion-label>
-       Interview Coaches
-      </ion-label>
+  <ion-list lines="none">
+    <ion-item>
+      <ion-label>Interview Coaches</ion-label>
     </ion-item>
   </ion-list>
 
-  </ion-content>
-  
+  <ion-modal   [isOpen]="selectedUser !== null" (ionModalDidDismiss)="setSelectedUser(null)">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button color="light" (click)="closeModal()">Close</ion-button>
+        </ion-buttons>
+        <ion-title>{{ selectedUser?.user.name.first }} {{ selectedUser?.user.name.last }}</ion-title>
+      </ion-toolbar>
+      <ion-toolbar>
+        <ion-segment [(ngModel)]="activeSegment">
+          <ion-segment-button value="details">Details</ion-segment-button>
+          <ion-segment-button value="calendar">Calendar</ion-segment-button>
+        </ion-segment>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ng-container *ngIf="activeSegment === 'details'">
+        <ion-card>
+          <ion-card-content class="ion-no-padding">
+            <ion-buttons slot="start">
+              <ion-button color="light" (click)="closeModal()">Close</ion-button>
+            </ion-buttons>
+            <div style="display: flex; justify-content: center; align-items: center; padding: 1rem;">
+              <ion-avatar>
+                <img [src]="selectedUser?.user.picture.large" alt="User avatar" />
+              </ion-avatar>
+            </div>
+            <ion-item lines="none">
+              <ion-label class="ion-text-wrap">
+                More Info about your coach:
+                <ul>
+                  <li><p>Email: {{ selectedUser?.user.email }}</p></li>
+                  <li><p>Cell: {{ selectedUser?.user.cell }}</p></li>
+                  <li><p>City: {{ selectedUser?.user.location.city }}</p></li>
+                  <li><p>State: {{ selectedUser?.user.location.state }}</p></li>
+                  <li><p>Street: {{ selectedUser?.user.location.street }}</p></li>
+                </ul>
+              </ion-label>
+            </ion-item>
+           
+              <p class="ion-padding-horizontal"></p>
+              <ion-item>
+                <ion-checkbox id="terms" (ionChange)="onTermsChanged($event)" [checked]="canDismiss">
+                  <div class="ion-text-wrap">Do you want {{ selectedUser?.user.name.title}} {{ selectedUser?.user.name.first }} {{ selectedUser?.user.name.last }} to be you coach ?</div>
+                </ion-checkbox>
+              </ion-item>
+       
+          </ion-card-content>
+        </ion-card>
+      </ng-container>
+      <ng-container *ngIf="activeSegment === 'calendar'">
+        <ion-datetime></ion-datetime>
+      </ng-container>
+    </ion-content>
+  </ion-modal>
+
+  <ng-container *ngIf="user.results.length > 0">
+    <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+      <ion-fab-button>
+        <ion-icon name="add-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    <ion-list lines="none" class="ion-margin-bottom recentJobs">
+      <ion-list-header class="ion-margin-bottom">
+        <ion-label color="light">Popular Coaches</ion-label>
+        <ion-button fill="clear" size="small" color="medium" (click)="toggleShowAllRecent()">
+          <ion-text>{{ showAllRecent ? 'Show less' : 'Show all' }}</ion-text>
+        </ion-button>
+      </ion-list-header>
+      <ng-container *ngFor="let user of user.results; let i = index" inset="true">
+        <ion-item *ngIf="showAllRecent || i < 3" (click)="setSelectedUser(user)">
+          <ion-thumbnail slot="start">
+            <img [src]="user.user.picture.thumbnail" alt="User avatar">
+          </ion-thumbnail>
+          <ion-label>
+            <ion-text> Name: {{ user.user.name.title }} {{ user.user.name.first }} {{ user.user.name.last }}</ion-text>
+            <p>
+              Gender: {{ user.user.gender }}
+              <span class="dot"></span>
+              Cell: {{ user.user.cell }}
+            </p>
+          </ion-label>
+        </ion-item>
+      </ng-container>
+    </ion-list>
+  </ng-container>
+</ion-content>
