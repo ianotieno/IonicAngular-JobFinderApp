@@ -1,4 +1,4 @@
-<ion-content [fullscreen]="true" color="light">
+<ion-content [fullscreen]="true" color="dark">
   <ion-header>
     <ion-toolbar [style.--background]="'url(\'../../../../assets/imgs/ux2.jpg\') no-repeat center center/cover'">
       <ion-buttons slot="start">
@@ -15,13 +15,21 @@
     </ion-item>
   </ion-list>
 
-  <ion-modal   [isOpen]="selectedUser !== null" (ionModalDidDismiss)="setSelectedUser(null)"  [presentingElement]="presentingElement">
+  <ion-modal   [isOpen]="selectedUser !== null" 
+  (ionModalDidDismiss)="setSelectedUser(null)" 
+   [presentingElement]="presentingElement"
+   breakpoints="[0.25, 0.5, 1]" 
+   initialBreakpoint="0.5"
+   backdropBreakpoint="0.25"
+   >
     <ion-content class="ion-padding">
       <ng-container *ngIf="activeSegment === 'details'">
         <ion-card>
           <ion-card-content class="ion-no-padding">
-            <ion-buttons slot="start">
-              <ion-button color="light" (click)="closeModal()">Close</ion-button>
+            <ion-buttons>
+              <ion-button color="light" (click)="closeModal()">
+                 <ion-icon name="log-out-outline" slot="end">
+                 </ion-icon></ion-button>
             </ion-buttons>
             <div style="display: flex; justify-content: center; align-items: center; padding: 1rem;">
               <ion-avatar>

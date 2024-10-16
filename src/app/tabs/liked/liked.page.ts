@@ -5,7 +5,7 @@ import { IonContent, IonHeader, IonToolbar, IonButtons, IonThumbnail, IonBackBut
 import { UserResponse } from 'src/app/User';
 import { Service } from 'src/app/Service';
 import { addIcons } from 'ionicons';
-import { add, addOutline } from 'ionicons/icons';
+import { add, addOutline, cog, logOut, logOutOutline } from 'ionicons/icons';
 import { FormsModule } from '@angular/forms';
 import { CheckboxCustomEvent } from '@ionic/angular';
 import { ActionSheetController } from '@ionic/angular';
@@ -37,7 +37,7 @@ export class LikedPage implements OnInit {
   presentingElement = undefined;
   constructor(private service: Service,private router: Router, private cdr: ChangeDetectorRef,private actionSheetCtrl: ActionSheetController) { 
 
-    addIcons({addOutline,});
+    addIcons({logOutOutline,addOutline,logOut,cog,});
   }
 
   ngOnInit() {
