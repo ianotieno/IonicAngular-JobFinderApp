@@ -15,21 +15,15 @@
     </ion-item>
   </ion-list>
 
-  <ion-modal   [isOpen]="selectedUser !== null" 
-  (ionModalDidDismiss)="setSelectedUser(null)" 
-   [presentingElement]="presentingElement"
-   breakpoints="[0.25, 0.5, 1]" 
-   initialBreakpoint="0.5"
-   backdropBreakpoint="0.25"
-   >
+  <ion-modal [isOpen]="selectedUser !== null" (ionModalDidDismiss)="setSelectedUser(null)" [presentingElement]="presentingElement" breakpoints="[0.25, 0.5, 1]" initialBreakpoint="0.5" backdropBreakpoint="0.25">
     <ion-content class="ion-padding">
       <ng-container *ngIf="activeSegment === 'details'">
         <ion-card>
           <ion-card-content class="ion-no-padding">
             <ion-buttons>
               <ion-button color="light" (click)="closeModal()">
-                 <ion-icon name="log-out-outline" slot="end">
-                 </ion-icon></ion-button>
+                <ion-icon name="log-out-outline" slot="end"></ion-icon>
+              </ion-button>
             </ion-buttons>
             <div style="display: flex; justify-content: center; align-items: center; padding: 1rem;">
               <ion-avatar>
@@ -48,14 +42,13 @@
                 </ul>
               </ion-label>
             </ion-item>
-           
-              <p class="ion-padding-horizontal"></p>
-              <ion-item>
-                <ion-checkbox id="terms" (ionChange)="onTermsChanged($event)" >
-                  <div class="ion-text-wrap">Do you want {{ selectedUser?.user.name.title}} {{ selectedUser?.user.name.first }} {{ selectedUser?.user.name.last }} to be you coach ?</div>
-                </ion-checkbox>
-              </ion-item>
-       
+
+            <p class="ion-padding-horizontal"></p>
+            <ion-item>
+              <ion-checkbox id="terms" (ionChange)="onTermsChanged($event)">
+                <div class="ion-text-wrap">Do you want {{ selectedUser?.user.name.title }} {{ selectedUser?.user.name.first }} {{ selectedUser?.user.name.last }} to be you coach ?</div>
+              </ion-checkbox>
+            </ion-item>
           </ion-card-content>
         </ion-card>
       </ng-container>
@@ -64,10 +57,19 @@
 
   <ng-container *ngIf="user.results.length > 0">
     <ion-fab horizontal="end" color="orange" vertical="bottom" slot="fixed">
-      <ion-fab-button>
+      <ion-fab-button (click)="openFormModal()">
         <ion-icon name="add-outline"></ion-icon>
       </ion-fab-button>
     </ion-fab>
+    
+    <ion-modal [isOpen]="isFormModalOpen" (ionModalDidDismiss)="closeFormModal()" >
+      <ion-content class="ion-padding">
+        <h2>Add a New Coach</h2>
+     
+      </ion-content>
+    </ion-modal>
+
+
     <ion-list lines="none" class="ion-margin-bottom recentJobs">
       <ion-list-header class="ion-margin-bottom">
         <ion-label color="light">Popular Coaches</ion-label>
