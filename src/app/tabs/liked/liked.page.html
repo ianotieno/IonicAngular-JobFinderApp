@@ -15,7 +15,12 @@
     </ion-item>
   </ion-list>
 
-  <ion-modal [isOpen]="selectedUser !== null" (ionModalDidDismiss)="setSelectedUser(null)" [presentingElement]="presentingElement" breakpoints="[0.25, 0.5, 1]" initialBreakpoint="0.5" backdropBreakpoint="0.25">
+  <ion-modal [isOpen]="selectedUser !== null" 
+  (ionModalDidDismiss)="setSelectedUser(null)" 
+  [presentingElement]="presentingElement" 
+  breakpoints="[0.25, 0.5, 1]" 
+  initialBreakpoint="0.5"
+   backdropBreakpoint="0.25">
     <ion-content class="ion-padding">
       <ng-container *ngIf="activeSegment === 'details'">
         <ion-card>
@@ -62,11 +67,113 @@
       </ion-fab-button>
     </ion-fab>
     
-    <ion-modal [isOpen]="isFormModalOpen" (ionModalDidDismiss)="closeFormModal()" >
-      <ion-content class="ion-padding">
-        <h2>Add a New Coach</h2>
-     
-      </ion-content>
+    <ion-modal [isOpen]="isFormModalOpen" 
+    (ionModalDidDismiss)="closeFormModal()" 
+    breakpoints="[0.25, 0.5, 1]" 
+    initialBreakpoint="0.5"
+    backdropBreakpoint="0.25"
+    >
+    <ng-container *ngIf="activeSegment === 'details'">
+      <ion-card>
+        <ion-card-content class="ion-no-padding">
+          <ion-buttons slot="end">
+            <ion-button color="light" (click)="closeFormModal()">
+              <ion-icon name="log-out-outline" ></ion-icon>
+            </ion-button>
+            <h2>Add a New Coach</h2>
+          </ion-buttons>
+            
+          <ion-list style="background-color: white;" [formGroup]="form">
+            <ion-item  color="light">
+              <ion-input
+                labelPlacement="floating"
+                type="text"
+                inputmode="text"
+                placeholder="Name Of Trainer"
+                enterkeyhint="next"
+                formControlName="name"
+                errorText="* Name Of Trainer"
+              >
+              <div slot="label">Name Of Trainer <ion-text color="danger">*</ion-text></div>
+              </ion-input>
+            </ion-item>
+        
+            <ion-item class="ion-margin-top" color="light">
+              <ion-input
+                labelPlacement="floating"
+                type="email"
+                inputmode="email"
+                formControlName="email"
+                placeholder="Enter email address"
+                errorText="* Enter proper email address"
+                enterkeyhint="next"
+              >
+                <div slot="label">Email <ion-text color="danger">*</ion-text></div>
+              </ion-input>
+            </ion-item>
+        
+            <ion-item class="ion-margin-top" color="light">
+              <ion-input
+                labelPlacement="floating"
+                type="number"
+                inputmode="number"
+                formControlName="phoneNumber"
+                placeholder="Enter Phone number"
+                errorText="* Enter phone number"
+                enterkeyhint="next"
+              >
+                <div slot="label">Phone Number <ion-text color="danger">*</ion-text></div>
+              </ion-input>
+        
+            </ion-item>
+            <ion-item class="ion-margin-top" color="light">
+              <ion-input
+                labelPlacement="floating"
+                type="text"
+                inputmode="text"
+                formControlName="location"
+                placeholder="Enter A Location"
+                errorText="* Enter A Location"
+                enterkeyhint="next"
+              >
+                <div slot="label">Location <ion-text color="danger">*</ion-text></div>
+              </ion-input>
+            </ion-item>
+            <ion-item class="ion-margin-top" color="light">
+              <ion-input
+                labelPlacement="floating"
+                type="text"
+                inputmode="text"
+                formControlName="pay"
+                placeholder="Enter Post"
+                errorText="* Enter Post"
+                enterkeyhint="next"
+              >
+                <div slot="label">Expected Pay <ion-text color="danger">*</ion-text></div>
+              </ion-input>
+            </ion-item>
+            <ion-item class="ion-margin-top" color="light">
+              <ion-input
+                labelPlacement="floating"
+                type="number"
+                inputmode="number"
+                formControlName="experience"
+                placeholder="Year Of Experience"
+                errorText="* Year Of Experience"
+                enterkeyhint="next"
+              >
+                <div slot="label">Year Of Experience <ion-text color="danger">*</ion-text></div>
+              </ion-input>
+            </ion-item>
+          </ion-list>
+        
+          <ion-button expand="block" (click)="open()">
+            <ion-text color="light">Submit</ion-text>
+          </ion-button>
+          
+        </ion-card-content>
+      </ion-card>
+    </ng-container>
     </ion-modal>
 
 
