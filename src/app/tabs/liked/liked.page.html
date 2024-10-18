@@ -151,7 +151,7 @@
       <ion-list-header class="ion-margin-bottom">
         <ion-label color="light">Popular Coaches(Pull the screen)</ion-label>
         <ion-button fill="clear" size="small" color="medium" (click)="toggleShowAllRecent()">
-          <ion-text>{{ showAllRecent ? 'Show less' : 'Show all' }}</ion-text>
+          <p> {{ showAllRecent ? 'Show less' : 'Show all' }}</p>
         </ion-button>
       </ion-list-header>
       <ng-container *ngFor="let user of user.results; let i = index" inset="true">
