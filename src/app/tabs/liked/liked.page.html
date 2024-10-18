@@ -13,7 +13,7 @@
       pullingIcon="chevron-down-circle-outline"
       pullingText="Pull to refresh"
       refreshingSpinner="crescent"
-      refreshingText="Refreshing...">
+      refreshingText="Load New Coaches...">
     </ion-refresher-content>
   </ion-refresher>
   <ion-list lines="none">
@@ -76,9 +76,7 @@
     
     <ion-modal [isOpen]="isFormModalOpen" 
     (ionModalDidDismiss)="closeFormModal()" 
-    breakpoints="[0.25, 0.5, 1]" 
-    initialBreakpoint="0.65"
-    backdropBreakpoint="0.25"
+ 
     >
     <ng-container *ngIf="activeSegment === 'details'">
       <ion-card color="dark">
