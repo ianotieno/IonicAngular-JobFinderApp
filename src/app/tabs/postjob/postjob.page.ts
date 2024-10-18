@@ -10,7 +10,10 @@ import Swal from 'sweetalert2';
   templateUrl: './postjob.page.html',
   styleUrls: ['./postjob.page.scss'],
   standalone: true,
-  imports: [IonButton, IonInput, IonList,ReactiveFormsModule, IonChip, IonItem, IonBackButton, IonButtons, IonText,IonThumbnail, IonLabel, IonContent, IonHeader,IonSelectOption ,IonTitle, IonToolbar, CommonModule,IonSelect, FormsModule]
+  imports: [IonButton, IonInput, IonList,ReactiveFormsModule, 
+    IonChip, IonItem, IonBackButton, IonButtons, IonText,
+    IonThumbnail, IonLabel, IonContent, IonHeader,IonSelectOption 
+    ,IonTitle, IonToolbar, CommonModule,IonSelect, FormsModule]
 
 })
 export class PostjobPage implements OnInit {
