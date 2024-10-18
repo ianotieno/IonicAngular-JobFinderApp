@@ -61,9 +61,9 @@
   </ion-modal>
 
   <ng-container >
-    <ion-fab horizontal="end"  vertical="bottom" color="light" slot="fixed">
-      <ion-fab-button  (click)="openFormModal()">
-        <ion-icon name="add-outline"></ion-icon>
+    <ion-fab horizontal="end" vertical="bottom" class="fab-outline" slot="fixed" color="medium">
+      <ion-fab-button class="fab-outline"  (click)="openFormModal()">
+        <ion-icon name="add-outline" ></ion-icon>
       </ion-fab-button>
     </ion-fab>
     
@@ -74,7 +74,7 @@
     backdropBreakpoint="0.25"
     >
     <ng-container *ngIf="activeSegment === 'details'">
-      <ion-card>
+      <ion-card color="dark">
         <ion-card-content class="ion-no-padding">
           <ion-buttons slot="end">
             <ion-button color="light" (click)="closeFormModal()">
@@ -85,59 +85,58 @@
        <div >
         <ion-label class="coach">Apply to be a Coach</ion-label>
        </div>   
-          <ion-list [formGroup]="myGroup">
-            <ion-item>
-              <label for="name">Name :  </label>
-              <input 
-                type="text"
-                inputmode="text"
-                placeholder=" Enter Your Name "
-                formControlName="name"
-              >
-            </ion-item>
-            <ion-item>
-              <label for="email">Email :  </label>
-              <input 
-                type="text"
-                inputmode="text"
-                placeholder="Enter Your email"
-                formControlName="email"
-              >
-            </ion-item>
-            <ion-item>
-              <label for="name">Phone :  </label>
-              <input 
-                type="text"
-                inputmode="text"
-                placeholder="Your Phone Number"
-                formControlName="phoneNumber"
-              >
-            </ion-item>
-            <ion-item>
-              <label for="name">Pay    :  </label>
-              <input 
-                type="text"
-                inputmode="text"
-                placeholder=" Expected pay"
-                formControlName="pay"
-              >
-            </ion-item>
-            <ion-item>
-              <label for="name">Experience :  </label>
-              <input 
-                type="text"
-                inputmode="text"
-                placeholder="Years of experience"
-                formControlName="experience"
-              >
-            </ion-item>
-         
-          </ion-list>
+       <ion-list [formGroup]="myGroup">
+        <ion-item class="dark-input-item">
+          <label for="name">Name:</label>
+          <input 
+            type="text"
+            inputmode="text"
+            placeholder="Enter Your Name"
+            formControlName="name"
+          >
+        </ion-item>
+        <ion-item class="dark-input-item">
+          <label for="email">Email:</label>
+          <input 
+            type="text"
+            inputmode="text"
+            placeholder="Enter Your email"
+            formControlName="email"
+          >
+        </ion-item>
+        <ion-item class="dark-input-item">
+          <label for="phone">Phone:</label>
+          <input 
+            type="text"
+            inputmode="text"
+            placeholder="Your Phone Number"
+            formControlName="phoneNumber"
+          >
+        </ion-item>
+        <ion-item class="dark-input-item">
+          <label for="pay">Pay:</label>
+          <input 
+            type="text"
+            inputmode="text"
+            placeholder="Expected pay"
+            formControlName="pay"
+          >
+        </ion-item>
+        <ion-item class="dark-input-item">
+          <label for="experience">Experience:</label>
+          <input 
+            type="text"
+            inputmode="text"
+            placeholder="Years of experience"
+            formControlName="experience"
+          >
+        </ion-item>
+      </ion-list>
 
           <ion-button expand="block" (click)="open()">
             <ion-text color="light">Submit</ion-text>
           </ion-button>
-          
+      
         </ion-card-content>
       </ion-card>
     </ng-container>

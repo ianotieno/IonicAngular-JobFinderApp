@@ -25,10 +25,12 @@ ion-content {
        
         ion-item {
             ion-label {
+                padding-left: 5px;
                 font-size: 1.0rem;
                 font-weight: 800;
             }
             img {
+                padding-left: 10px;
                 height: 6vh;
                 width: 6vh;
               }
@@ -45,4 +47,75 @@ ion-content {
        
      }
 
-    
+     .coach {
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin-bottom: 16px;
+        display: block;
+        text-align: center;
+        color: #333;
+      }
+      
+      ion-item {
+        --padding-start: 0; /* Aligns the labels with inputs */
+        margin-bottom: 16px; /* Adds space between items */
+      }
+      
+      ion-item label {
+        font-size: 1rem;
+        font-weight: 500;
+        margin-right: 10px;
+        min-width: 100px; /* Ensures all labels align */
+        color: #666; /* Gray color for labels */
+      }
+      
+      ion-item input {
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 10px;
+        font-size: 1rem;
+        width: 100%;
+      }
+      
+      ion-button {
+        margin-top: 20px;
+      }
+      
+      ion-button[color="light"] {
+        --background: #fbfbfb;
+        --background-hover: #fbfcfc;
+        --color: white;
+        --color-focused: white;
+      }
+      
+      ion-card-content {
+        padding: 16px;
+      }
+      
+      ion-card {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        margin: 16px;
+      }
+      
+      ion-text {
+        font-weight: bold;
+      }
+      .dark-input-item {
+        --background: var(--ion-color-dark); /* Background color of the input */
+        --color: var(--ion-color-light); /* Text color */
+        --placeholder-color: var(--ion-color-medium); /* Placeholder text color */
+        border-radius: 8px; /* Optional: Rounded corners */
+        margin-bottom: 10px; /* Optional: Space between items */
+      }
+      
+      .dark-input-item input {
+        background: transparent;
+        color: var(--ion-color-light); /* Text color inside input */
+        padding: 10px;
+      }
+      
+      .dark-input-item label {
+        color: var(--ion-color-light); /* Label text color */
+      }
+      

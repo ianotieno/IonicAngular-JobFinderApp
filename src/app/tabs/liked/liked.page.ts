@@ -134,6 +134,7 @@ export class LikedPage implements OnInit {
       if (result.dismiss === Swal.DismissReason.timer) {
         Swal.fire({
           title: 'Submitted Successfully!',
+          text: 'You will receive an email shortly.',
           icon: 'success',
           timer: 2000,
           showConfirmButton: false,
