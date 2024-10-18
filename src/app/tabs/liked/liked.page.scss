@@ -24,10 +24,13 @@ ion-content {
     ion-list {
        
         ion-item {
-            ion-label {
-                padding-left: 5px;
-                font-size: 1.0rem;
-                font-weight: 800;
+          padding-left: 5px;
+          font-size: 1.0rem;
+          font-weight: 800;
+            ion-text.c{
+              padding-left: 80px;
+              font-size: 1.5rem;
+              font-weight: 800;
             }
             img {
                 padding-left: 10px;
@@ -118,4 +121,4 @@ ion-content {
       .dark-input-item label {
         color: var(--ion-color-light); /* Label text color */
       }
-      
+     

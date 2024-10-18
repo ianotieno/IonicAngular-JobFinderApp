@@ -16,12 +16,11 @@
       refreshingText="Load New Coaches...">
     </ion-refresher-content>
   </ion-refresher>
-  <ion-list lines="none">
+  <ion-list >
     <ion-item>
-      <ion-label>Interview Coaches</ion-label>
+      <ion-text class="c">Interview Coaches</ion-text>
     </ion-item>
   </ion-list>
-
   <ion-modal [isOpen]="selectedUser !== null" 
   (ionModalDidDismiss)="setSelectedUser(null)" 
   [presentingElement]="presentingElement" 
@@ -146,11 +145,11 @@
       </ion-card>
     </ng-container>
     </ion-modal>
-
+ 
 
     <ion-list lines="none" class="ion-margin-bottom recentJobs">
       <ion-list-header class="ion-margin-bottom">
-        <ion-label color="light">Popular Coaches</ion-label>
+        <ion-label color="light">Popular Coaches(Pull the screen)</ion-label>
         <ion-button fill="clear" size="small" color="medium" (click)="toggleShowAllRecent()">
           <ion-text>{{ showAllRecent ? 'Show less' : 'Show all' }}</ion-text>
         </ion-button>
