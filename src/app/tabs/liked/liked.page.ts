@@ -108,7 +108,7 @@ export class LikedPage implements OnInit {
             showConfirmButton: false,
             heightAuto: false
           }).then(() => {
-            this.router.navigateByUrl('/tabs/liked');
+            this.closeModal()
           });
         }
       });

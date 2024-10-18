@@ -19,7 +19,7 @@
   (ionModalDidDismiss)="setSelectedUser(null)" 
   [presentingElement]="presentingElement" 
   breakpoints="[0.25, 0.5, 1]" 
-  initialBreakpoint="0.5"
+  initialBreakpoint="0.65"
    backdropBreakpoint="0.25">
     <ion-content class="ion-padding">
       <ng-container *ngIf="activeSegment === 'details'">
@@ -61,8 +61,8 @@
   </ion-modal>
 
   <ng-container >
-    <ion-fab horizontal="end" color="orange" vertical="bottom" slot="fixed">
-      <ion-fab-button (click)="openFormModal()">
+    <ion-fab horizontal="end"  vertical="bottom" color="light" slot="fixed">
+      <ion-fab-button  (click)="openFormModal()">
         <ion-icon name="add-outline"></ion-icon>
       </ion-fab-button>
     </ion-fab>
@@ -91,7 +91,7 @@
               <input 
                 type="text"
                 inputmode="text"
-                placeholder="Name Of Company"
+                placeholder=" Enter Your Name "
                 formControlName="name"
               >
             </ion-item>
