@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonContent, IonModal, IonHeader, IonCard, IonCardContent,IonThumbnail ,IonIcon, IonAvatar, IonButton, IonList, IonItem, IonLabel, IonCheckbox, IonFab, IonText, IonListHeader, IonToolbar, IonButtons, IonBackButton, IonFabButton } from '@ionic/angular/standalone';
+import { IonContent, IonModal, IonHeader, IonCard, IonCardContent,IonThumbnail ,IonIcon, IonAvatar, IonButton, IonList, IonItem, IonLabel, IonCheckbox, IonFab, IonText, IonListHeader, IonToolbar, IonButtons, IonBackButton, IonFabButton, IonRefresherContent, IonRefresher } from '@ionic/angular/standalone';
 import { UserResponse } from 'src/app/User';
 import { Service } from 'src/app/Service';
 import { addIcons } from 'ionicons';
@@ -18,7 +18,7 @@ import { IonInputAccessorModule } from 'src/app/ion-input-accessor.module';
   templateUrl: './liked.page.html',
   styleUrls: ['./liked.page.scss'],
   standalone: true,
-  imports: [IonFabButton,IonThumbnail, IonBackButton,
+  imports: [IonRefresher, IonRefresherContent, IonFabButton,IonThumbnail, IonBackButton,
      IonButtons,  IonInputAccessorModule,IonToolbar, IonListHeader, IonText, IonFab, IonCheckbox, IonLabel, IonItem, IonList, IonButton, IonAvatar, IonIcon, IonCardContent, IonCard, IonHeader, IonModal, IonContent, CommonModule, FormsModule, ReactiveFormsModule]
 })
 export class LikedPage implements OnInit {
@@ -36,9 +36,8 @@ export class LikedPage implements OnInit {
   myGroup!:FormGroup;
   constructor(
     private service: Service,
-    private router: Router,
     private cdr: ChangeDetectorRef,
-    private actionSheetCtrl: ActionSheetController
+
   ) {
   
     addIcons({ logOutOutline, addOutline, logOut, cog });
@@ -169,6 +168,13 @@ export class LikedPage implements OnInit {
       pay: new FormControl(''),
       experience: new FormControl('')
 });} 
+
+doRefresh(event: any) {
+  this.getuser();  // Re-fetch the user data
+  setTimeout(() => {
+    event.target.complete();  // Complete the refresh action after data is loaded
+  }, 1500);  // Optional delay to simulate loading time
+}
           
   }
 

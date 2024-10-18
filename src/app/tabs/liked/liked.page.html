@@ -8,7 +8,14 @@
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
-
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="crescent"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
   <ion-list lines="none">
     <ion-item>
       <ion-label>Interview Coaches</ion-label>
@@ -151,7 +158,7 @@
         </ion-button>
       </ion-list-header>
       <ng-container *ngFor="let user of user.results; let i = index" inset="true">
-        <ion-item *ngIf="showAllRecent || i < 3" (click)="setSelectedUser(user)">
+        <ion-item *ngIf="showAllRecent || i < 5" (click)="setSelectedUser(user)">
           <ion-thumbnail slot="start">
             <img [src]="user.user.picture.thumbnail" alt="User avatar">
           </ion-thumbnail>
