@@ -70,7 +70,7 @@
     <ion-modal [isOpen]="isFormModalOpen" 
     (ionModalDidDismiss)="closeFormModal()" 
     breakpoints="[0.25, 0.5, 1]" 
-    initialBreakpoint="0.7"
+    initialBreakpoint="0.65"
     backdropBreakpoint="0.25"
     >
     <ng-container *ngIf="activeSegment === 'details'">
@@ -80,21 +80,60 @@
             <ion-button color="light" (click)="closeFormModal()">
               <ion-icon name="log-out-outline" ></ion-icon>
             </ion-button>
-            <h2>Add a New Coach</h2>
+            
           </ion-buttons>
-           
-          <div [formGroup]="myGroup">
-            <input 
-            labelPlacement="floating"
-            type="text"
-            inputmode="text"
-            placeholder="Name Of Company"
-            enterkeyhint="next"
-            formControlName="firstName">
-            <div slot="label">Name Of Company <ion-text color="danger">*</ion-text></div>
-          </div>
-        
-          
+       <div >
+        <ion-label class="coach">Apply to be a Coach</ion-label>
+       </div>   
+          <ion-list [formGroup]="myGroup">
+            <ion-item>
+              <label for="name">Name :  </label>
+              <input 
+                type="text"
+                inputmode="text"
+                placeholder="Name Of Company"
+                formControlName="name"
+              >
+            </ion-item>
+            <ion-item>
+              <label for="email">Email :  </label>
+              <input 
+                type="text"
+                inputmode="text"
+                placeholder="Enter Your email"
+                formControlName="email"
+              >
+            </ion-item>
+            <ion-item>
+              <label for="name">Phone :  </label>
+              <input 
+                type="text"
+                inputmode="text"
+                placeholder="Your Phone Number"
+                formControlName="phoneNumber"
+              >
+            </ion-item>
+            <ion-item>
+              <label for="name">Pay    :  </label>
+              <input 
+                type="text"
+                inputmode="text"
+                placeholder=" Expected pay"
+                formControlName="pay"
+              >
+            </ion-item>
+            <ion-item>
+              <label for="name">Experience :  </label>
+              <input 
+                type="text"
+                inputmode="text"
+                placeholder="Years of experience"
+                formControlName="experience"
+              >
+            </ion-item>
+         
+          </ion-list>
+
           <ion-button expand="block" (click)="open()">
             <ion-text color="light">Submit</ion-text>
           </ion-button>

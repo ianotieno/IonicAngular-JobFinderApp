@@ -40,12 +40,12 @@ export class LikedPage implements OnInit {
     private cdr: ChangeDetectorRef,
     private actionSheetCtrl: ActionSheetController
   ) {
-   this.initForm();
-   this.initForm1();
+  
     addIcons({ logOutOutline, addOutline, logOut, cog });
   }
 
   ngOnInit() {
+    this.initForm1();
     this.getuser();
   }
 
@@ -139,9 +139,8 @@ export class LikedPage implements OnInit {
           showConfirmButton: false,
           heightAuto: false
         }).then(() => {
-          this.form.reset();
-          this.form.markAsPristine();
-          this.form.markAsUntouched();
+          this.myGroup.reset();
+          this.myGroup.markAsUntouched();
          this. closeFormModal()
         });
       }
@@ -162,7 +161,12 @@ export class LikedPage implements OnInit {
   
   initForm1(){
     this.myGroup = new FormGroup({
-    firstName: new FormControl()
+      name: new FormControl(''),
+      email: new FormControl(''),
+      phoneNumber: new FormControl(''),
+      location: new FormControl(''),
+      pay: new FormControl(''),
+      experience: new FormControl('')
 });} 
           
   }
