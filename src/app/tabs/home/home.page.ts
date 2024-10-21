@@ -121,6 +121,9 @@ export class HomePage implements OnInit {
   
     this.cdr.detectChanges();
   }
+  trackById(index: number, job: any): number {
+    return job.id;
+  }
   
   
 }
