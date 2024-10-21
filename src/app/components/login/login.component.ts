@@ -61,11 +61,8 @@ export class LoginComponent   {
 
   initForm() {
     this.form = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [
-        Validators.required,
-        Validators.minLength(8),
-      ]),
+      email: new FormControl(''),
+      password: new FormControl(''),
     });
   }
 
